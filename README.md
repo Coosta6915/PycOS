@@ -64,7 +64,7 @@ An open source operating system designed primarily for the Raspberry Pi Pico, wr
 
 ## Installation
 
-**Make sure you are in the `/pycos` directory before starting.**
+**Make sure you are in the `pycos/` directory before starting.**
 
 1. Connect the board to your computer in USB mass storage device mode (also referred to as bootloader mode) which can be done by holding down the `BOOTSEL` button on the board while plugging it in. The `BOOTSEL` button varies from board to board and may be be called something different on yours.
 2. Flash [MicroPython with Pimoroni libraries](https://github.com/pimoroni/pimoroni-pico/releases) onto your chosen board. This is done by copying the UF2 binary onto the boards storage.
