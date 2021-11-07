@@ -5,7 +5,7 @@ import utime as time
 
 from config import *
 
-pycos_version = "0.0.1"
+pycos_version = "0.0.2"
 reset_causes = ["PWRON_RESET", "HARD_RESET", "WDT_RESET", "DEEPSLEEP_RESET", "SOFT_RESET"]
 
 screen.init(
@@ -96,10 +96,29 @@ def display_advanced_menu():
 
 def display_options_menu():
     clear()
-    text("< CPU Clock", 10, 20)
+    text("< Display", 10, 20)
     text("< Back", 10, 100)
     text("Power >", 160, 20)
     text("Bootloader >", 100, 100)
+    separator()
+    refresh()
+
+
+def display_brightness_options_menu():
+    clear()
+    text("< Back", 10, 100)
+    text("Increase >", 130, 20)
+    text("Descrease >", 120, 100)
+    separator()
+    refresh()
+
+
+def display_power_menu():
+    clear()
+    text("< CPU Clock", 10, 20)
+    text("< Back", 10, 100)
+    text("Sleep > ", 160, 20)
+    text("Reset > ", 160, 100)
     separator()
     refresh()
 
@@ -110,15 +129,6 @@ def display_cpu_clock_menu():
     text("< Back", 10, 100)
     text("125 Mhz > ", 150, 20)
     text("100 MHz > ", 150, 100)
-    separator()
-    refresh()
-
-
-def display_power_menu():
-    clear()
-    text("< Back", 10, 100)
-    text("Sleep > ", 160, 20)
-    text("Reset > ", 160, 100)
     separator()
     refresh()
 
@@ -142,6 +152,7 @@ def display_reset_menu():
 
 
 screen.set_backlight(DEFAULT_DISPLAY_BRIGHTNESS)
+brightness = DEFAULT_DISPLAY_BRIGHTNESS
 
 display_home_screen()
 while True:
@@ -178,23 +189,30 @@ while True:
             if screen.is_pressed(screen.BUTTON_X): # options
                 display_options_menu()
                 while True:
-                    if screen.is_pressed(screen.BUTTON_A): # cpu clock menu
-                        display_cpu_clock_menu()
+                    if screen.is_pressed(screen.BUTTON_A): # brightness options menu
+                        display_brightness_options_menu()
                         while True:
                             if screen.is_pressed(screen.BUTTON_A):
-                                machine.freq(133000000)
-                                break
+                                pass
 
                             if screen.is_pressed(screen.BUTTON_B):
                                 break
 
                             if screen.is_pressed(screen.BUTTON_X):
-                                machine.freq(125000000)
-                                break
+                                brightness += 0.1
+                                if brightness > 1.0:
+                                    brightness = 1.0
+
+                                screen.set_backlight(brightness)
+                                time.sleep_ms(250)
 
                             if screen.is_pressed(screen.BUTTON_Y):
-                                machine.freq(100000000)
-                                break
+                                brightness -= 0.1
+                                if brightness < 0.2: # 10% brightness is too dim
+                                    brightness = 0.2
+                                
+                                screen.set_backlight(brightness)
+                                time.sleep_ms(250)
 
                         display_options_menu()
 
@@ -204,8 +222,25 @@ while True:
                     if screen.is_pressed(screen.BUTTON_X): # power menu
                         display_power_menu()
                         while True:
-                            if screen.is_pressed(screen.BUTTON_A):
-                                pass
+                            if screen.is_pressed(screen.BUTTON_A): # cpu clock menu
+                                display_cpu_clock_menu()
+                                while True:
+                                    if screen.is_pressed(screen.BUTTON_A):
+                                        machine.freq(133000000)
+                                        break
+
+                                    if screen.is_pressed(screen.BUTTON_B):
+                                        break
+
+                                    if screen.is_pressed(screen.BUTTON_X):
+                                        machine.freq(125000000)
+                                        break
+
+                                    if screen.is_pressed(screen.BUTTON_Y):
+                                        machine.freq(100000000)
+                                        break
+
+                                display_power_menu()
 
                             if screen.is_pressed(screen.BUTTON_B): # back
                                 break
