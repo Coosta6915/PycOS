@@ -40,7 +40,7 @@ def display_home_screen():
     screen.set_pen(255, 225, 225)
     screen.circle(0, int(screen.get_height() / 2), 100)
     screen.set_pen(255, 0, 0)
-    screen.text("Pycos", 5, int(screen.get_height() / 2) - 10, (screen.get_width() - 5), 3)
+    screen.text("PycOS", 5, int(screen.get_height() / 2) - 10, (screen.get_width() - 5), 3)
 
     text("Menu >", 170, 100)
     refresh()
