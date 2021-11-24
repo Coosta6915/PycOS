@@ -41,7 +41,7 @@ def raise_boot_exception(error: str = "unknown?", info: str = "unknown?"):
 
 
 # required files for startup
-required_files = ["system/recovery.py"]
+required_files = ["main.py", "system/recovery.py"]
 
 # initialise display
 display_width = display.get_width()
