@@ -4,6 +4,7 @@ import uos as os
 import utime as time
 
 from system.gooey.manager import *
+from system.sysdata import *
 
 from config import *
 

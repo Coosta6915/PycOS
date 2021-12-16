@@ -1,4 +1,5 @@
 import os
+import time
 
 import picodisplay as display
 
@@ -37,7 +38,7 @@ def raise_boot_exception(error: str = "unknown?", info: str = "unknown?"):
 
     display.update()
 
-    exit()
+    time.sleep(3)
 
 
 # required files for startup

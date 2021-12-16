@@ -9,9 +9,9 @@ def clear():
     display.clear()
 
 
-def text(string: str, displayx: int, y: int, size: int = 2):
+def text(string: str, x: int, y: int, size: int = 2):
     display.set_pen(TEXT_COLOUR[0], TEXT_COLOUR[1], TEXT_COLOUR[2])
-    display.text(string, x, y, (screen.get_width() - x), size)
+    display.text(string, x, y, (display.get_width() - x), size)
 
 
 def separator():
