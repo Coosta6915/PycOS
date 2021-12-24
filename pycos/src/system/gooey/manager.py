@@ -1,26 +1,28 @@
-import picodisplay as display
+import picodisplay as screen
+
 import time
 
 from config import *
+from themes.raspberry import *
 
 
 def clear():
-    display.set_pen(BACKGROUND_COLOUR[0], BACKGROUND_COLOUR[1], BACKGROUND_COLOUR[2])
-    display.clear()
+    screen.set_pen(BACKGROUND_COLOUR[0], BACKGROUND_COLOUR[1], BACKGROUND_COLOUR[2])
+    screen.clear()
 
 
 def text(string: str, x: int, y: int, size: int = 2):
-    display.set_pen(TEXT_COLOUR[0], TEXT_COLOUR[1], TEXT_COLOUR[2])
-    display.text(string, x, y, (display.get_width() - x), size)
+    screen.set_pen(TEXT_COLOUR[0], TEXT_COLOUR[1], TEXT_COLOUR[2])
+    screen.text(string, x, y, (screen.get_width() - x), size)
 
 
 def separator():
-    display.set_pen(SEPARATOR_COLOUR[0], SEPARATOR_COLOUR[1], SEPARATOR_COLOUR[2])
-    display.circle(15, int(display.get_height() / 2), 1)
-    display.rectangle(15, int((display.get_height() / 2) - 2), int(display.get_width() - 30), 4)
-    display.circle(int(display.get_width() - 15), int(display.get_height() / 2), 1)
+    screen.set_pen(SEPARATOR_COLOUR[0], SEPARATOR_COLOUR[1], SEPARATOR_COLOUR[2])
+    screen.circle(15, int(screen.get_height() / 2), 1)
+    screen.rectangle(15, int((screen.get_height() / 2) - 2), int(screen.get_width() - 30), 4)
+    screen.circle(int(screen.get_width() - 15), int(screen.get_height() / 2), 1)
 
 
 def refresh():
-    display.update()
+    screen.update()
     time.sleep_ms(REFRESH_DELAY)
