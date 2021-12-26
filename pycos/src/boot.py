@@ -10,20 +10,22 @@ screen.init(display_buffer)
 
 screen.set_pen(0, 0, 0)
 screen.clear()
-
-screen.text("Running system file check", 0, 0, display_width, 2)
-screen.update()
-
-time.sleep(2)
+screen.set_pen(255, 255, 255)
 
 required_files = []
 
-for required_file in required_files:
-    try:
+# boot check
+try:
+    # system files check
+    for required_file in required_files:
         with open(required_file, "rb") as f:
             f.read()
 
-    except OSError as e:
-        screen.set_pen(255, 255, 255)
-        screen.text(str(e), 0, 0, display_width, 2)
-        screen.update()
+    # user initiated exception
+    if screen.is_pressed(screen.BUTTON_X):
+        raise Exception("User initiated")
+
+except Exception as e:
+    screen.set_led(100, 0, 0)
+    screen.text(str(e), 0, 0, display_width, 2)
+    screen.update()
