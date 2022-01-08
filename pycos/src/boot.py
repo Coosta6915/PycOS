@@ -12,7 +12,7 @@ screen.set_pen(0, 0, 0)
 screen.clear()
 screen.set_pen(255, 255, 255)
 
-required_files = []
+required_files = ["boot.py", "config.py", "main.py"]
 
 # boot check
 try:
@@ -27,5 +27,6 @@ try:
 
 except Exception as e:
     screen.set_led(100, 0, 0)
-    screen.text(str(e), 0, 0, display_width, 2)
+    screen.text(str(e), 10, 10, display_width, 2)
     screen.update()
+    time.sleep(5)

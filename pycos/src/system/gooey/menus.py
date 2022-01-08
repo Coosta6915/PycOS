@@ -13,13 +13,13 @@ def display_home_screen():
     screen.set_pen(255, 225, 225)
     screen.circle(0, int(screen.get_height() / 2), 100)
     screen.set_pen(255, 0, 0)
-    screen.text("Pycos", 5, int(screen.get_height() / 2) - 10, (screen.get_width() - 5), 3)
+    screen.text("PycOS", 5, int(screen.get_height() / 2) - 10, (screen.get_width() - 5), 3)
 
     text("Menu >", 170, 100)
     refresh()
 
 
-def display_main_menu():
+def main_menu():
     clear()
     text("< About", 10, 20)
     text("< Back", 10, 100)
@@ -29,9 +29,9 @@ def display_main_menu():
     refresh()
 
 
-def display_about_menu():
+def about_menu():
     clear()
-    text("Pycos " + pycos_version, 10, 10, 4)
+    text("PycOS " + PYCOS_VERSION, 10, 10, 4)
     text(os.uname()[0] + " - " + os.uname()[2], 10, 40)
 
     text("< Back", 10, 100)
@@ -39,7 +39,7 @@ def display_about_menu():
     refresh()
 
 
-def display_system_info_menu():
+def system_info_menu():
     clear()
     text("Device: " + os.uname()[4], 10, 10)
     text("MicroPython: " + os.uname()[3], 10, 50)
@@ -49,25 +49,17 @@ def display_system_info_menu():
     refresh()
 
 
-def display_advanced_menu():
-    try:
-        open("boot.py", "r").close()
-        boot_file_present = True
-
-    except OSError:
-        boot_file_present = False
-
+def advanced_menu():
     clear()
     text("ID: " + str(machine.unique_id()), 10, 10)
-    text("Reset: " + reset_causes[machine.reset_cause() - 1], 10, 30)
+    text("Reset: " + RESET_CAUSES[machine.reset_cause() - 1], 10, 30)
     text("CPU clock: " + str(int(machine.freq() / 1000000)) + " MHz", 10, 50)
-    text("Boot file: " + str(boot_file_present), 10, 70)
 
     text("< Back", 10, 100)
     refresh()
 
 
-def display_options_menu():
+def options_menu():
     clear()
     text("< Display", 10, 20)
     text("< Back", 10, 100)
@@ -77,7 +69,7 @@ def display_options_menu():
     refresh()
 
 
-def display_brightness_options_menu():
+def brightness_options_menu():
     clear()
     text("< Back", 10, 100)
     text("Increase >", 130, 20)
@@ -86,7 +78,7 @@ def display_brightness_options_menu():
     refresh()
 
 
-def display_power_menu():
+def power_menu():
     clear()
     text("< CPU Clock", 10, 20)
     text("< Back", 10, 100)
@@ -96,7 +88,7 @@ def display_power_menu():
     refresh()
 
 
-def display_cpu_clock_menu():
+def cpu_clock_menu():
     clear()
     text("< 133 MHz", 10, 20)
     text("< Back", 10, 100)
@@ -106,7 +98,7 @@ def display_cpu_clock_menu():
     refresh()
 
 
-def display_sleep_menu():
+def sleep_menu():
     clear()
     text("< Back", 10, 100)
     text("Light sleep > ", 100, 20)
@@ -115,7 +107,7 @@ def display_sleep_menu():
     refresh()
 
 
-def display_reset_menu():
+def reset_menu():
     clear()
     text("< Back", 10, 100)
     text("Soft reset > ", 110, 20)

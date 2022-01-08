@@ -1,3 +1,3 @@
-pycos_version = "" # prerelease
+PYCOS_VERSION = "p/b" # pre-release / beta
 
-reset_causes = ["PWRON_RESET", "HARD_RESET", "WDT_RESET", "DEEPSLEEP_RESET", "SOFT_RESET"]
+RESET_CAUSES = ["PWRON_RESET", "HARD_RESET", "WDT_RESET", "DEEPSLEEP_RESET", "SOFT_RESET"]

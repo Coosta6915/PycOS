@@ -16,40 +16,40 @@ screen.set_backlight(brightness)
 display_home_screen()
 while True:
     if screen.is_pressed(screen.BUTTON_Y):
-        display_main_menu()
+        main_menu()
         while True:
             if screen.is_pressed(screen.BUTTON_A): # about menu
-                display_about_menu()
+                about_menu()
                 while True:
                     if screen.is_pressed(screen.BUTTON_B): # back
                         break
 
                     if screen.is_pressed(screen.BUTTON_Y): # system info menu
-                        display_system_info_menu()
+                        system_info_menu()
                         while True:
                             if screen.is_pressed(screen.BUTTON_B):
                                 break
 
                             if screen.is_pressed(screen.BUTTON_Y): # advanced menu
-                                display_advanced_menu()
+                                advanced_menu()
                                 while True:
                                     if screen.is_pressed(screen.BUTTON_B):
                                         break
 
-                                display_system_info_menu()
+                                system_info_menu()
 
-                        display_about_menu()
+                        about_menu()
 
-                display_main_menu()
+                main_menu()
 
             if screen.is_pressed(screen.BUTTON_B): # back
                 break
 
             if screen.is_pressed(screen.BUTTON_X): # options
-                display_options_menu()
+                options_menu()
                 while True:
                     if screen.is_pressed(screen.BUTTON_A): # brightness options menu
-                        display_brightness_options_menu()
+                        brightness_options_menu()
                         while True:
                             if screen.is_pressed(screen.BUTTON_A):
                                 pass
@@ -73,16 +73,16 @@ while True:
                                 screen.set_backlight(brightness)
                                 time.sleep_ms(250)
 
-                        display_options_menu()
+                        options_menu()
 
                     if screen.is_pressed(screen.BUTTON_B): # back
                         break
 
                     if screen.is_pressed(screen.BUTTON_X): # power menu
-                        display_power_menu()
+                        power_menu()
                         while True:
                             if screen.is_pressed(screen.BUTTON_A): # cpu clock menu
-                                display_cpu_clock_menu()
+                                cpu_clock_menu()
                                 while True:
                                     if screen.is_pressed(screen.BUTTON_A):
                                         machine.freq(133000000)
@@ -99,13 +99,13 @@ while True:
                                         machine.freq(100000000)
                                         break
 
-                                display_power_menu()
+                                power_menu()
 
                             if screen.is_pressed(screen.BUTTON_B): # back
                                 break
 
                             if screen.is_pressed(screen.BUTTON_X): # sleep menu
-                                display_sleep_menu()
+                                sleep_menu()
                                 while True:
                                     if screen.is_pressed(screen.BUTTON_B):
                                         break
@@ -118,10 +118,10 @@ while True:
                                         screen.set_backlight(0)
                                         machine.deepsleep()
 
-                                display_power_menu()
+                                power_menu()
 
                             if screen.is_pressed(screen.BUTTON_Y): # reset menu
-                                display_reset_menu()
+                                reset_menu()
                                 while True:
                                     if screen.is_pressed(screen.BUTTON_B):
                                         break
@@ -132,9 +132,9 @@ while True:
                                     if screen.is_pressed(screen.BUTTON_Y):
                                         machine.reset()
 
-                                display_power_menu()
+                                power_menu()
 
-                        display_options_menu()
+                        options_menu()
 
                     if screen.is_pressed(screen.BUTTON_Y): # bootloader
                         clear()
@@ -143,7 +143,7 @@ while True:
                         refresh()
                         machine.bootloader()
 
-                display_main_menu()
+                main_menu()
 
             if screen.is_pressed(screen.BUTTON_Y): # programs
 
@@ -180,6 +180,6 @@ while True:
                     if screen.is_pressed(screen.BUTTON_B):
                         break
 
-                display_main_menu()
+                main_menu()
 
         display_home_screen()
