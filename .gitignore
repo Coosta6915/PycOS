@@ -1,4 +1,5 @@
 # PycOS stuff
+*.mpy
 py2mpy.cmd
 py2mpy.sh
 cpbuild.cmd
