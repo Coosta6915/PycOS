@@ -29,4 +29,4 @@ except Exception as e:
     screen.set_led(100, 0, 0)
     screen.text(str(e), 10, 10, display_width, 2)
     screen.update()
-    time.sleep(5)
+    time.sleep(3)
