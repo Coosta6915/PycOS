@@ -2,8 +2,6 @@
 
 ## Directory structure
 
-**`__init__.py` files have been excluded.**
-
 * system/
     * gooey/
         * manager.py
