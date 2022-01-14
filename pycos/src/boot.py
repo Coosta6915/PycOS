@@ -12,7 +12,7 @@ screen.set_pen(0, 0, 0)
 screen.clear()
 screen.set_pen(255, 255, 255)
 
-required_files = ["boot.py", "config.py", "main.py"]
+required_files = ["boot.py", "main.py"]
 
 # boot check
 try:
