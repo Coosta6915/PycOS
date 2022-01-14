@@ -1,6 +1,7 @@
 import picodisplay as screen
 
-from config import *
+from system.fileh.jsonh import *
+from system.sysdata import *
 from system.gooey.menus import *
 from system.gooey.manager import *
 
@@ -10,8 +11,10 @@ display_height = screen.get_height()
 display_buffer = bytearray(display_width * display_height * 2)
 screen.init(display_buffer)
 
-brightness = DEFAULT_DISPLAY_BRIGHTNESS
-screen.set_backlight(brightness)
+sysconfig = load(sysconfig_path)
+
+display_brightness = sysconfig["display"]["default_brightness"]
+screen.set_backlight(display_brightness)
 
 display_home_screen()
 while True:
@@ -58,20 +61,20 @@ while True:
                                 break
 
                             if screen.is_pressed(screen.BUTTON_X):
-                                brightness += 0.1
-                                if brightness > 1.0:
-                                    brightness = 1.0
+                                display_brightness += 0.1
+                                if display_brightness > 1.0:
+                                    display_brightness = 1.0
 
-                                screen.set_backlight(brightness)
-                                time.sleep_ms(250)
+                                screen.set_backlight(display_brightness)
+                                time.sleep_ms(sysconfig["display"]["refresh_delay"])
 
                             if screen.is_pressed(screen.BUTTON_Y):
-                                brightness -= 0.1
-                                if brightness < 0.2: # 10% brightness is too dim
-                                    brightness = 0.2
+                                display_brightness -= 0.1
+                                if display_brightness < 0.2: # 10% brightness is too dim
+                                    display_brightness = 0.2
                                 
-                                screen.set_backlight(brightness)
-                                time.sleep_ms(250)
+                                screen.set_backlight(display_brightness)
+                                time.sleep_ms(sysconfig["display"]["refresh_delay"])
 
                         options_menu()
 

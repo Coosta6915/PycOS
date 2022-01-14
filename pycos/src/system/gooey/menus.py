@@ -3,7 +3,6 @@ import picodisplay as screen
 import machine
 import os
 
-from config import *
 from system.gooey.manager import *
 from system.sysdata import *
 

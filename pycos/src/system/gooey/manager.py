@@ -2,7 +2,10 @@ import picodisplay as screen
 
 import time
 
-from config import *
+from system.fileh.jsonh import *
+from system.sysdata import *
+
+sysconfig = load(sysconfig_path)
 
 
 def clear():
@@ -24,4 +27,4 @@ def separator():
 
 def refresh():
     screen.update()
-    time.sleep_ms(REFRESH_DELAY)
+    time.sleep_ms(sysconfig["display"]["refresh_delay"])
