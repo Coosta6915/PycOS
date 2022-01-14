@@ -4,7 +4,7 @@ SRC_DIR = "../../pycos/src"
 BUILD_DIR = "../../pycos/build"
 # path to build directory
 
-EXCLUDE_FILES = ["boot.py", "main.py", "config.py", "sysdata.json"]
+EXCLUDE_FILES = ["boot.py", "main.py", "config.py"]
 # exclude files from being run through mpy-cross
 
 EMITTER = "bytecode"

@@ -4,8 +4,8 @@ import machine
 import os
 
 from config import *
-from system.fileh.jsonh import *
 from system.gooey.manager import *
+from system.sysdata import *
 
 
 def display_home_screen():
@@ -31,7 +31,7 @@ def main_menu():
 
 def about_menu():
     clear()
-    text("PycOS " + load("/system/sysdata.json")["pycos_version"], 10, 10, 4)
+    text("PycOS " + pycos_version, 10, 10, 4)
     text(os.uname()[0] + " - " + os.uname()[2], 10, 40)
 
     text("< Back", 10, 100)
@@ -52,7 +52,7 @@ def system_info_menu():
 def advanced_menu():
     clear()
     text("ID: " + str(machine.unique_id()), 10, 10)
-    text("Reset: " + load("/system/sysdata.json")["reset_causes"][machine.reset_cause() - 1], 10, 30)
+    text("Reset: " + reset_causes[machine.reset_cause() - 1], 10, 30)
     text("CPU clock: " + str(int(machine.freq() / 1000000)) + " MHz", 10, 50)
 
     text("< Back", 10, 100)
