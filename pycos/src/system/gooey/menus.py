@@ -13,7 +13,6 @@ def display_home_screen():
     screen.circle(0, int(screen.get_height() / 2), 100)
     screen.set_pen(255, 0, 0)
     screen.text("PycOS", 5, int(screen.get_height() / 2) - 10, (screen.get_width() - 5), 3)
-
     text("Menu >", 170, 100)
     refresh()
 
@@ -32,28 +31,24 @@ def about_menu():
     clear()
     text("PycOS " + pycos_version, 10, 10, 4)
     text(os.uname()[0] + " - " + os.uname()[2], 10, 40)
-
     text("< Back", 10, 100)
-    text("More info >", 120, 100)
+    text("Details >", 140, 100)
     refresh()
 
 
-def system_info_menu():
+def about_details_menu():
     clear()
     text("Device: " + os.uname()[4], 10, 10)
     text("MicroPython: " + os.uname()[3], 10, 50)
-
     text("< Back", 10, 100)
-    text("Advanced >", 120, 100)
     refresh()
 
 
 def advanced_menu():
     clear()
     text("ID: " + str(machine.unique_id()), 10, 10)
-    text("Reset: " + reset_causes[machine.reset_cause() - 1], 10, 30)
+    text("Reset: " + str(machine.reset_cause()) + " (" + reset_causes[machine.reset_cause() - 1] + ")", 10, 30)
     text("CPU clock: " + str(int(machine.freq() / 1000000)) + " MHz", 10, 50)
-
     text("< Back", 10, 100)
     refresh()
 

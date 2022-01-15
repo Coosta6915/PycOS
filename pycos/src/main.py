@@ -27,19 +27,11 @@ while True:
                     if screen.is_pressed(screen.BUTTON_B): # back
                         break
 
-                    if screen.is_pressed(screen.BUTTON_Y): # system info menu
-                        system_info_menu()
+                    if screen.is_pressed(screen.BUTTON_Y): # about details menu
+                        about_details_menu()
                         while True:
                             if screen.is_pressed(screen.BUTTON_B):
                                 break
-
-                            if screen.is_pressed(screen.BUTTON_Y): # advanced menu
-                                advanced_menu()
-                                while True:
-                                    if screen.is_pressed(screen.BUTTON_B):
-                                        break
-
-                                system_info_menu()
 
                         about_menu()
 
