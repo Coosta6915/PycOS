@@ -4,7 +4,7 @@ An open source operating system (mostly just a GUI) designed primarily for the R
 
 "PycOS" is an combination of the words Python, Pico and OS.
 
-**Check the `dev` branch for pre-release stuff.**
+**Currently in a semi-working state, with a few incomplete features.**
 
 ## Overview
 
