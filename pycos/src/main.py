@@ -2,8 +2,8 @@ import picodisplay as screen
 
 from system.fileh.jsonh import *
 from system.sysdata import *
-from system.gooey.menus import *
-from system.gooey.manager import *
+from system.gui.menus import *
+from system.gui.manager import *
 
 display_width = screen.get_width()
 display_height = screen.get_height()
