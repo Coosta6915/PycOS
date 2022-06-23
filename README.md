@@ -64,33 +64,19 @@ An open source operating system (mostly just a GUI) designed primarily for the R
 
 ## Installation
 
-**This is a temporary solution until the PycOS client is complete.**
-
-1. Connect the board to your computer and check that [rshell](https://github.com/dhylands/rshell) recognises the board
-
-        rshell boards
+Ensure your board is running compatible firmware and is detected by `rshell`.
 
 1. Clone the repository
 
         git clone https://github.com/Coosta6915/PycOS.git
 
-2. Change directory to `tools/{your_os}`
+2. Change directory into `pycos/src/`
 
-        cd PycOS/tools/windows
+        cd PycOS/pycos/src/
 
-    or
+3. Use `rshell` to synchronise the board with the currect directory
 
-        cd PycOS/tools/linux
-
-3. Configure options in `config.py`
-
-4. Run `py2mpy.py`
-
-5. Run `py2mpy.cmd` or `py2mpy.sh` (will be created after `py2mpy.py` is run)
-
-6. Run `cpbuild.py`
-
-7. Run `cpbuild.cmd` or `cpbuild.sh` (will be created after `cpbuild.py` is run)
+        rshell rsync --mirror . /pyboard
 
 ## Images
 
