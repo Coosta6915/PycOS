@@ -64,9 +64,9 @@ Ensure your board is running compatible firmware and is detected by `rshell`.
 
         git clone https://github.com/Coosta6915/PycOS.git
 
-2. Change directory into `pycos/src/`
+2. Change directory into `pycos/`
 
-        cd PycOS/pycos/src/
+        cd PycOS/pycos/
 
 3. Use `rshell` to synchronise the board with the currect directory
 
