@@ -22,7 +22,6 @@ def main_menu():
     text("< About", 10, 20)
     text("< Back", 10, 100)
     text("Options >", 140, 20)
-    text("Programs >", 120, 100)
     separator()
     refresh()
 

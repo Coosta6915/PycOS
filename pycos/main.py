@@ -140,41 +140,4 @@ while True:
 
                 main_menu()
 
-            if screen.is_pressed(screen.BUTTON_Y): # programs
-
-                programs = []
-
-                try:
-                    for file in os.listdir():
-                        if file[0:3] == "Pp_":
-                            programs.append(file)
-
-                except FileNotFoundError:
-                    break
-
-                if len(programs) > 3:
-                    break
-
-                clear()
-                try:
-                    text("< " + programs[0].split(".")[0][3:], 10, 20)
-                    text(programs[1].split(".")[0][3:] + " >", 100, 20)
-                    text(programs[2].split(".")[0][3:] + " >", 100, 100)
-                except IndexError:
-                    pass
-    
-                text("< Back", 10, 100)
-                separator()
-                refresh()
-                while True:
-                    if screen.is_pressed(screen.BUTTON_A):
-                        program_import = programs[0].split(".")[0]
-                        program = __import__(program_import)
-                        program.main()
-
-                    if screen.is_pressed(screen.BUTTON_B):
-                        break
-
-                main_menu()
-
         display_home_screen()
