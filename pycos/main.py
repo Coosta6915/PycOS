@@ -2,7 +2,7 @@ import picodisplay as screen
 
 from system.fileh.jsonh import *
 from system.sysdata import *
-from system.gui.menus import *
+from system.gui.menu import *
 from system.gui.manager import *
 
 display_width = screen.get_width()
