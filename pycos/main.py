@@ -134,7 +134,7 @@ while True:
                     if screen.is_pressed(screen.BUTTON_Y): # bootloader
                         clear()
                         text("Bootloader", 10, 10, 3)
-                        text("Please wait until the file finishes copying over", 10, 40)
+                        text("Do not disconnect device", 10, 40)
                         refresh()
                         machine.bootloader()
 
