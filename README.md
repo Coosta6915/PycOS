@@ -2,34 +2,31 @@
 
 An open source operating system (mostly just a GUI) designed primarily for the Raspberry Pi Pico, written entirely in MicroPython.
 
-"PycOS" is an combination of the words Python, Pico and OS.
-
-**Currently in a semi-working state, with some incomplete features.**
-
 ## Overview
+
+**Currently in [alpha](https://en.wikipedia.org/wiki/Software_release_life_cycle#Alpha), with a lot of incomplete features.**
+
+"PycOS" is an combination of the words Python, Pico and OS.
 
 ### Features
 
-* Support for custom themes
-* Dedicated configuration file
 * Overclocking/underclocking support
-* Quick access to bootloader
-* Support for custom scripts
+* Quick bootloader access
+* Editable configuration file
 
 ### Future plans
 
-* Further UI improvements
+* User interface improvements
 * More customisation options
-* Improved scripting support
-* Desktop client for easy interfacing with the device
+* Hardware specific features/versions
 
 ## Requirements
 
 ### Hardware requirements
 
-* [Compatible display](#compatibility)
-* [Compatible board](#compatibility)
-* USB data cable
+* [Compatible display](#Compatibility)
+* [Compatible board](#Compatibility)
+* Data cable
 
 ### Software requirements
 
@@ -41,17 +38,20 @@ An open source operating system (mostly just a GUI) designed primarily for the R
 | Displays | Compatible? | Notes |
 |---|---|---|
 | [Pimoroni Pico Display Pack](https://shop.pimoroni.com/products/pico-display-pack) | Yes (tested) | |
-| [Pimoroni Pico Display Pack 2.0](https://shop.pimoroni.com/products/pico-display-pack-2-0) | No | Requires a different display module to work and UI elements are not fully optimised |
+| [Pimoroni Pico Display Pack 2.0](https://shop.pimoroni.com/products/pico-display-pack-2-0) | No | ~~Requires a different display driver to work~~ [Pull request #327](https://github.com/pimoroni/pimoroni-pico/pull/327) fixes this issue, but code still requires rewriting |
 
 | Boards | Compatible? | Notes |
 |---|---|---|
 | [Raspberry Pi Pico](https://www.raspberrypi.com/products/raspberry-pi-pico/) | Yes (tested) | |
+| [Raspberry Pi Pico H](https://www.raspberrypi.com/products/raspberry-pi-pico/) | Yes | Similar to the original variant, so most likely works |
+| [Raspberry Pi Pico W](https://www.raspberrypi.com/products/raspberry-pi-pico/) | Yes | Similar to the original variant, so most likely works |
 | [Pimoroni Pico LiPo (4MB)](https://shop.pimoroni.com/products/pimoroni-pico-lipo?variant=39386149093459) | Yes | Similar to the 16MB variant, so most likely works |
 | [Pimoroni Pico LiPo (16MB)](https://shop.pimoroni.com/products/pimoroni-pico-lipo?variant=39335427080275) | Yes (tested) | |
 
-| Firmware | Compatible? | Notes |
+| Firmware (Excluding pre-releases) | Compatible? | Notes |
 |---|---|---|
-| [Version 1.18.7](https://github.com/pimoroni/pimoroni-pico/releases/tag/v1.18.7) | Yes (tested) | |
+| [Version 1.19.x](https://github.com/pimoroni/pimoroni-pico/releases/tag/v1.19.6) | No | [Display driver code refactor](https://github.com/pimoroni/pimoroni-pico/pull/327) |
+| [Version 1.18.x](https://github.com/pimoroni/pimoroni-pico/releases/tag/v1.18.7) | Yes (tested) | |
 | **Legacy** | | |
 | [Version 0.3.x (MicroPython v1.17)](https://github.com/pimoroni/pimoroni-pico/releases/tag/v0.3.3) | Yes (tested) | |
 | [Version 0.2.x (MicroPython v1.15/v1.16)](https://github.com/pimoroni/pimoroni-pico/releases/tag/v0.2.7) | Yes (tested) | |
