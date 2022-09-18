@@ -1,9 +1,5 @@
-# PycOS stuff
+# MicroPython
 *.mpy
-py2mpy.cmd
-py2mpy.sh
-cpbuild.cmd
-cpbuild.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
